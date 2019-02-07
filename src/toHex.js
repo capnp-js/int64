@@ -6,7 +6,7 @@ import negate from "./negate";
 
 export default function toHex(int64: Int64): string {
   let prefix, h, l;
-  if (int64[0] < 0) {
+  if (int64[0] & 0x80000000) {
     const positive = negate(int64);
     prefix = "-0x";
     h = (positive[0] >>> 0).toString(16);
